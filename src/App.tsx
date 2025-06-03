@@ -149,8 +149,10 @@ const DiscordMessageViewer = () => {
         setScreen(2);
         // Display a random message
         if (filteredMessages.length > 0) {
-          const randomIndex = Math.floor(Math.random() * filteredMessages.length);
-          setCurrentMessage(filteredMessages[randomIndex]);
+          const userNameDict: {[key: string]: true} = users.reduce((acc, cv) => ({...acc, [cv.username]: true}), {})
+          const avaliablemessages = filteredMessages.filter((m: Message) => userNameDict[m.user])
+          const randomIndex = Math.floor(Math.random() * avaliablemessages.length);
+          setCurrentMessage(avaliablemessages[randomIndex]);
           showRandomMessage()
         }
       } catch (error) {
