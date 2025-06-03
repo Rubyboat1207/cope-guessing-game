@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Upload, MessageCircle, Reply, Trophy, Target } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { Upload, Reply, Trophy, Target } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import _210percent from '/src/assets/pfp/210percent.jpg'
 import _wiryweare from '/src/assets/pfp/wiryweare.png'
