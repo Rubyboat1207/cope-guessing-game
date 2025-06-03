@@ -376,8 +376,8 @@ const DiscordMessageViewer = () => {
         <div className="max-w-4xl mx-auto">
           {/* File Upload Section */}
           <div className="bg-gray-900 rounded-lg p-8 mb-8">
-            <h2 className="text-2xl font-bold mb-6">Insta Upload Mode!</h2>
-            <p className="text-gray-400 mb-6">You can add comments before uploading.<br />Hold shift to upload directly.</p>
+            <h2 className="text-2xl font-bold mb-6">Cope Guessing game</h2>
+            <p className="text-gray-400 mb-6">Update the users if you want before uploading. Once you upload, the game starts instantly.</p>
             
             <label 
               className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer transition-colors ${
