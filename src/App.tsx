@@ -82,7 +82,7 @@ const DiscordMessageViewer = () => {
     {
       username: '210percent',
       nickname: '210Percent',
-      avatar: _wiryweare,
+      avatar: _210percent,
       avatarColor: '#000'
     },
     {
@@ -144,13 +144,14 @@ const DiscordMessageViewer = () => {
       try {
         const data = JSON.parse((event.target.result || '').toString());
         // Filter messages to only those with usernames
-        const filteredMessages = data.filter((msg: Message) => msg.user && msg.user.trim() !== '');
+        const filteredMessages = data.filter((msg: Message) => msg.user && msg.user.trim() !== '' && msg.message);
         setMessages(filteredMessages);
         setScreen(2);
         // Display a random message
         if (filteredMessages.length > 0) {
           const randomIndex = Math.floor(Math.random() * filteredMessages.length);
           setCurrentMessage(filteredMessages[randomIndex]);
+          showRandomMessage()
         }
       } catch (error) {
         alert('Invalid JSON file');
@@ -225,7 +226,9 @@ const DiscordMessageViewer = () => {
 
   const showRandomMessage = () => {
     const userNameDict: {[key: string]: true} = users.reduce((acc, cv) => ({...acc, [cv.username]: true}), {})
+    console.log(userNameDict)
     const avaliablemessages = messages.filter(m => userNameDict[m.user])
+    console.log('Messages not in userNameDict:', avaliablemessages.filter(m => !userNameDict[m.user]).length);
     if (avaliablemessages.length > 0) {
       const randomIndex = Math.floor(Math.random() * avaliablemessages.length);
       setCurrentMessage(avaliablemessages[randomIndex]);
